@@ -1,6 +1,6 @@
-# myapp
+# Testing IDX CRUD
 
-A new Flutter project.
+This is an application for deploy a CRUD envorinment from backend endpoints, related to a Sales Point site
 
 ## Getting Started
 
