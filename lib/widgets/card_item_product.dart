@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:myapp/routes/app_routes.dart';
 
 class CardItemProduct extends StatelessWidget {
+  final String id;
   final String url;
   final String name;
   final double price;
@@ -8,6 +11,7 @@ class CardItemProduct extends StatelessWidget {
   final String description;
   const CardItemProduct({
     super.key,
+    required this.id,
     required this.url,
     required this.name,
     required this.price,
@@ -26,7 +30,6 @@ class CardItemProduct extends StatelessWidget {
         borderRadius: BorderRadius.circular(40),
         child:  Container(
           color: Colors.grey[200],
-          // padding: const EdgeInsets.all(16.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -35,37 +38,43 @@ class CardItemProduct extends StatelessWidget {
                 height: 220,
                 width: double.infinity,
                 fit: BoxFit.cover,
+                errorBuilder: (context, error, stackTrace) => const Center(
+                  child: Icon(Icons.error),
+                ),
               ),
-              Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Text(
-                      name,
-                      style: const TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 16.0,
+              GestureDetector(
+                onTap: () => context.go('${AppRoutes.productDetail.split('/:').first}/$id'),
+                child: Center(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Text(
+                        name,
+                        style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16.0,
+                        ),
                       ),
-                    ),
-                    Text(
-                      '\$ $price',
-                      style: TextStyle(
-                        color: Colors.grey[600],
+                      Text(
+                        '\$ $price',
+                        style: TextStyle(
+                          color: Colors.grey[600],
+                        ),
                       ),
-                    ),
-                    Text(
-                      '$stock',
-                      style: TextStyle(
-                        color: Colors.grey[600],
+                      Text(
+                        '$stock',
+                        style: TextStyle(
+                          color: Colors.grey[600],
+                        ),
                       ),
-                    ),
-                    Text(
-                      description,
-                      style: TextStyle(
-                        color: Colors.grey[600],
+                      Text(
+                        description,
+                        style: TextStyle(
+                          color: Colors.grey[600],
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               )
             ],

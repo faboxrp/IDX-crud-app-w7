@@ -20,11 +20,11 @@ class ProductsListView extends ConsumerWidget {
       drawer: const DrawerWidget(),
       body: SingleChildScrollView(
         child: Column(
-          children: [
-            ...productProv.when(
+          children: productProv.when(
               data: (List<Product> lp) {
                 return lp.map((product) {
                   return CardItemProduct(
+                    id: product.id,
                     url: product.urlImage,
                     name: product.name,
                     price: product.price,
@@ -36,36 +36,7 @@ class ProductsListView extends ConsumerWidget {
               error: (obj, err) => [Text(err.toString()), const Text('===='), Text(obj.toString())],
               loading: () => [const CircularProgressIndicator()],
             )
-            // ...[ Text("1"), Text("2") ]
-            // CardItemProduct(
-            //   url: "https://images.unsplash.com/photo-1707767787271-b00e648a61e4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTcxNzYzMTgzMw&ixlib=rb-4.0.3&q=80&w=200",
-            //   description: "Descripción",
-            //   name: "Producto 1",
-            //   price: 5.25,
-            //   stock: 10,
-            // ),
-            // CardItemProduct(
-            //   url: "https://images.unsplash.com/photo-1707767787271-b00e648a61e4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTcxNzYzMTgzMw&ixlib=rb-4.0.3&q=80&w=200",
-            //   description: "Descripción",
-            //   name: "Producto 1",
-            //   price: 5.25,
-            //   stock: 10,
-            // ),
-            // CardItemProduct(
-            //   url: "https://images.unsplash.com/photo-1707767787271-b00e648a61e4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTcxNzYzMTgzMw&ixlib=rb-4.0.3&q=80&w=200",
-            //   description: "Descripción",
-            //   name: "Producto 1",
-            //   price: 5.25,
-            //   stock: 10,
-            // ),
-            // CardItemProduct(
-            //   url: "https://images.unsplash.com/photo-1707767787271-b00e648a61e4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTcxNzYzMTgzMw&ixlib=rb-4.0.3&q=80&w=200",
-            //   description: "Descripción",
-            //   name: "Producto 1",
-            //   price: 5.25,
-            //   stock: 10,
-            // ),
-          ],
+          ,
         ),
       ),
     );

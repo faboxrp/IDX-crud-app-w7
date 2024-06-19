@@ -6,7 +6,7 @@ import 'package:myapp/views/index.dart';
 class AppRoutes {
     static String home = "/";
     static String createUpdate = "/create-update";
-    static String productDetail = "/product-detail";
+    static String productDetail = "/product-detail/:productId";
     static String productsListView = "/product-list-view";
 }
 
@@ -25,6 +25,6 @@ final routesConfig = GoRouter(routes: [
   ),
   GoRoute(
     path: AppRoutes.productDetail,
-    builder: (context, state) => const ProductDetailView(),
+    builder: (context, state) => ProductDetailView(productId: state.pathParameters['productId'],),
   ),
 ]);
