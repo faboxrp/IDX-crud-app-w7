@@ -43,7 +43,7 @@ class CardItemProduct extends StatelessWidget {
                 ),
               ),
               GestureDetector(
-                onTap: () => context.go('${AppRoutes.productDetail.split('/:').first}/$id'),
+                onTap: () => context.go('${AppRoutes.productDetail}/$id'),
                 child: Center(
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
