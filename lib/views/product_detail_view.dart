@@ -11,6 +11,7 @@ class ProductDetailView extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    // Asegurarse con un print
     final productByidRef = ref.watch(productByIdProvider(productId ?? ''));
     return Scaffold(
       appBar: AppBar(

@@ -50,18 +50,23 @@ class ProductDetailWidget extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.end,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
-                              name,
-                              style: const TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 20.0,
+                            SizedBox(
+                              width: 125,
+                              child: Text(
+                                name,
+                                style: const TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 20.0,
+                                ),
                               ),
                             ),
-                            Text(
-                              description,
-                              style: const TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 20.0,
+                            SizedBox(
+                              width: 125,
+                              child: Text(
+                                description,
+                                style: const TextStyle(
+                                  fontSize: 10.0,
+                                ),
                               ),
                             ),
                             Text(
