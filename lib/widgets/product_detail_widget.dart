@@ -92,7 +92,10 @@ class ProductDetailWidget extends StatelessWidget {
                     style: ButtonStyle(
                       backgroundColor: WidgetStateProperty.all(Colors.blue),
                     ),
-                    onPressed: () => context.push(AppRoutes.createUpdate),
+                    onPressed: () => context.push(
+                      AppRoutes.createUpdate,
+                      extra: {'productId': id},
+                    ),
                     child: const SizedBox(
                       width: double.infinity,
                       child: Center(
